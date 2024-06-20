@@ -18,15 +18,16 @@
  * *********************************************************************** */
 package org.matsim.project;
 
-import org.apache.log4j.Logger;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
+import org.apache.logging.log4j.LogManager;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.matsim.api.core.v01.Scenario;
 import org.matsim.core.config.Config;
 import org.matsim.core.controler.Controler;
 import org.matsim.run.RunSerengetiParkScenario;
 import org.matsim.testcases.MatsimTestUtils;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * @author ikaddoura
@@ -34,7 +35,8 @@ import org.matsim.testcases.MatsimTestUtils;
  */
 public class RunSerengetiParkScenarioTest {
 	
-	@Rule public MatsimTestUtils utils = new MatsimTestUtils() ;
+	@RegisterExtension
+	public MatsimTestUtils utils = new MatsimTestUtils() ;
 
 	@Test
 	public final void test() {
@@ -51,10 +53,10 @@ public class RunSerengetiParkScenarioTest {
 			controler.run();
 			
 		} catch ( Exception ee ) {
-			Logger.getLogger(this.getClass()).fatal("there was an exception: \n" + ee ) ;
+			LogManager.getLogger(this.getClass()).fatal("there was an exception: \n" + ee ) ;
 
 			// if one catches an exception, then one needs to explicitly fail the test:
-			Assert.fail();
+			fail();
 		}
 
 

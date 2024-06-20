@@ -24,14 +24,15 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.matsim.api.core.v01.Id;
 import org.matsim.api.core.v01.Scenario;
 import org.matsim.api.core.v01.network.Link;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigGroup;
 import org.matsim.core.config.ConfigUtils;
-import org.matsim.core.config.groups.PlansCalcRouteConfigGroup;
+import org.matsim.core.config.groups.RoutingConfigGroup;
 import org.matsim.core.controler.Controler;
 import org.matsim.core.controler.OutputDirectoryLogging;
 import org.matsim.core.gbl.Gbl;
@@ -47,7 +48,7 @@ import org.matsim.prepare.CreatePopulation;
 
 public final class RunSerengetiParkScenario {
 
-	private static final Logger log = Logger.getLogger(RunSerengetiParkScenario.class );
+	private static final Logger log = LogManager.getLogger(RunSerengetiParkScenario.class );
 
 
 	// Demand
@@ -72,7 +73,7 @@ public final class RunSerengetiParkScenario {
 		}
 		
 		if ( args.length==0 ) {
-			args = new String[] {"./scenarios/serengeti-park-v1.0/input/serengeti-park-config-v1.0.xml"}  ;
+			args = new String[] {"./scenarios/serengeti-park-v1.0/input/serengeti-park-config-v1.0-with-pt.xml"}  ;
 		}
 
 		Config config = prepareConfig( args ) ;
@@ -209,9 +210,9 @@ public final class RunSerengetiParkScenario {
 		
 //		config.controler().setRoutingAlgorithmType( FastAStarLandmarks );
 				
-		config.plansCalcRoute().setRoutingRandomness( 0. );
+		config.routing().setRoutingRandomness( 0. );
 						
-		config.plansCalcRoute().setAccessEgressType(PlansCalcRouteConfigGroup.AccessEgressType.accessEgressModeToLink);
+		config.routing().setAccessEgressType(RoutingConfigGroup.AccessEgressType.accessEgressModeToLink);
 		config.qsim().setUsingTravelTimeCheckInTeleportation( true );
 		
 		ConfigUtils.applyCommandline( config, typedArgs ) ;

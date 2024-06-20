@@ -19,7 +19,8 @@
 
 package org.matsim.prepare;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.geotools.data.simple.SimpleFeatureIterator;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.Point;
@@ -47,7 +48,7 @@ import java.util.Random;
  */
 public class CreatePopulation {
 
-	private static final Logger log = Logger.getLogger(CreatePopulation.class);
+	private static final Logger log = LogManager.getLogger(CreatePopulation.class);
 
 	private int personCounter = 0;
 	private final Map<String, SimpleFeature> features = new HashMap<>();
