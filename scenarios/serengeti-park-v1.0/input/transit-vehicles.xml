@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vehicleDefinitions xmlns="http://www.matsim.org/files/dtd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.matsim.org/files/dtd http://www.matsim.org/files/dtd/vehicleDefinitions_v2.0.xsd">
+
+	<vehicleType id="shuttle">
+
+		<description>shuttle vehicle type</description>
+		<capacity seats="10000" standingRoomInPersons="0">
+
+		</capacity>
+		<length meter="20.0"/>
+		<width meter="1.0"/>
+		<maximumVelocity meterPerSecond="36.0"/>
+		<costInformation>
+
+		</costInformation>
+		<passengerCarEquivalents pce="2.0"/>
+		<networkMode networkMode="pt"/>
+		<flowEfficiencyFactor factor="1.0"/>
+	</vehicleType>
+
+	<vehicle id="shuttle_vehicle_32400" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_32700" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_33000" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_33300" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_33600" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_33900" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_34200" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_34500" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_34800" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_35100" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_35400" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_35700" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_36000" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_36300" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_36600" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_36900" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_37200" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_37500" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_37800" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_38100" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_38400" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_38700" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_39000" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_39300" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_39600" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_39900" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_40200" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_40500" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_40800" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_41100" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_41400" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_41700" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_42000" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_42300" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_42600" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_42900" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_43200" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_43500" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_43800" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_44100" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_44400" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_44700" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_45000" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_45300" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_45600" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_45900" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_46200" type="shuttle"/>
+	<vehicle id="shuttle_vehicle_46500" type="shuttle"/>
+		
+
+</vehicleDefinitions>

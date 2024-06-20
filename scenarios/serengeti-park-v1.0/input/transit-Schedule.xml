@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE transitSchedule SYSTEM "http://www.matsim.org/files/dtd/transitSchedule_v2.dtd">
+
+<transitSchedule>
+
+	<transitStops>
+		<stopFacility id="Stop_1" x="544106.781992937" y="5847758.641000098" linkRefId="pt_1" isBlocking="false"/>
+		<stopFacility id="Stop_2" x="541685.9309178652" y="5844777.673792916" linkRefId="pt_3" isBlocking="false"/>
+	</transitStops>
+	<transitLine id="Shuttle">
+		<transitRoute id="route-1">
+			<transportMode>pt</transportMode>
+			<routeProfile>
+				<stop refId="Stop_1" arrivalOffset="00:00:00" departureOffset="00:00:10" awaitDeparture="false"/>
+				<stop refId="Stop_2" arrivalOffset="01:00:00" departureOffset="01:00:10" awaitDeparture="false"/>
+			</routeProfile>
+			<route>
+				<link refId="pt_1"/>
+				<link refId="pt_2"/>
+				<link refId="pt_3"/>
+			</route>
+			<departures>
+				<departure id="departure_32400" departureTime="09:00:00" vehicleRefId="shuttle_vehicle_32400"/>
+				<departure id="departure_32700" departureTime="09:05:00" vehicleRefId="shuttle_vehicle_32700"/>
+				<departure id="departure_33000" departureTime="09:10:00" vehicleRefId="shuttle_vehicle_33000"/>
+				<departure id="departure_33300" departureTime="09:15:00" vehicleRefId="shuttle_vehicle_33300"/>
+				<departure id="departure_33600" departureTime="09:20:00" vehicleRefId="shuttle_vehicle_33600"/>
+				<departure id="departure_33900" departureTime="09:25:00" vehicleRefId="shuttle_vehicle_33900"/>
+				<departure id="departure_34200" departureTime="09:30:00" vehicleRefId="shuttle_vehicle_34200"/>
+				<departure id="departure_34500" departureTime="09:35:00" vehicleRefId="shuttle_vehicle_34500"/>
+				<departure id="departure_34800" departureTime="09:40:00" vehicleRefId="shuttle_vehicle_34800"/>
+				<departure id="departure_35100" departureTime="09:45:00" vehicleRefId="shuttle_vehicle_35100"/>
+				<departure id="departure_35400" departureTime="09:50:00" vehicleRefId="shuttle_vehicle_35400"/>
+				<departure id="departure_35700" departureTime="09:55:00" vehicleRefId="shuttle_vehicle_35700"/>
+				<departure id="departure_36000" departureTime="10:00:00" vehicleRefId="shuttle_vehicle_36000"/>
+				<departure id="departure_36300" departureTime="10:05:00" vehicleRefId="shuttle_vehicle_36300"/>
+				<departure id="departure_36600" departureTime="10:10:00" vehicleRefId="shuttle_vehicle_36600"/>
+				<departure id="departure_36900" departureTime="10:15:00" vehicleRefId="shuttle_vehicle_36900"/>
+				<departure id="departure_37200" departureTime="10:20:00" vehicleRefId="shuttle_vehicle_37200"/>
+				<departure id="departure_37500" departureTime="10:25:00" vehicleRefId="shuttle_vehicle_37500"/>
+				<departure id="departure_37800" departureTime="10:30:00" vehicleRefId="shuttle_vehicle_37800"/>
+				<departure id="departure_38100" departureTime="10:35:00" vehicleRefId="shuttle_vehicle_38100"/>
+				<departure id="departure_38400" departureTime="10:40:00" vehicleRefId="shuttle_vehicle_38400"/>
+				<departure id="departure_38700" departureTime="10:45:00" vehicleRefId="shuttle_vehicle_38700"/>
+				<departure id="departure_39000" departureTime="10:50:00" vehicleRefId="shuttle_vehicle_39000"/>
+				<departure id="departure_39300" departureTime="10:55:00" vehicleRefId="shuttle_vehicle_39300"/>
+				<departure id="departure_39600" departureTime="11:00:00" vehicleRefId="shuttle_vehicle_39600"/>
+				<departure id="departure_39900" departureTime="11:05:00" vehicleRefId="shuttle_vehicle_39900"/>
+				<departure id="departure_40200" departureTime="11:10:00" vehicleRefId="shuttle_vehicle_40200"/>
+				<departure id="departure_40500" departureTime="11:15:00" vehicleRefId="shuttle_vehicle_40500"/>
+				<departure id="departure_40800" departureTime="11:20:00" vehicleRefId="shuttle_vehicle_40800"/>
+				<departure id="departure_41100" departureTime="11:25:00" vehicleRefId="shuttle_vehicle_41100"/>
+				<departure id="departure_41400" departureTime="11:30:00" vehicleRefId="shuttle_vehicle_41400"/>
+				<departure id="departure_41700" departureTime="11:35:00" vehicleRefId="shuttle_vehicle_41700"/>
+				<departure id="departure_42000" departureTime="11:40:00" vehicleRefId="shuttle_vehicle_42000"/>
+				<departure id="departure_42300" departureTime="11:45:00" vehicleRefId="shuttle_vehicle_42300"/>
+				<departure id="departure_42600" departureTime="11:50:00" vehicleRefId="shuttle_vehicle_42600"/>
+				<departure id="departure_42900" departureTime="11:55:00" vehicleRefId="shuttle_vehicle_42900"/>
+				<departure id="departure_43200" departureTime="12:00:00" vehicleRefId="shuttle_vehicle_43200"/>
+				<departure id="departure_43500" departureTime="12:05:00" vehicleRefId="shuttle_vehicle_43500"/>
+				<departure id="departure_43800" departureTime="12:10:00" vehicleRefId="shuttle_vehicle_43800"/>
+				<departure id="departure_44100" departureTime="12:15:00" vehicleRefId="shuttle_vehicle_44100"/>
+				<departure id="departure_44400" departureTime="12:20:00" vehicleRefId="shuttle_vehicle_44400"/>
+				<departure id="departure_44700" departureTime="12:25:00" vehicleRefId="shuttle_vehicle_44700"/>
+				<departure id="departure_45000" departureTime="12:30:00" vehicleRefId="shuttle_vehicle_45000"/>
+				<departure id="departure_45300" departureTime="12:35:00" vehicleRefId="shuttle_vehicle_45300"/>
+				<departure id="departure_45600" departureTime="12:40:00" vehicleRefId="shuttle_vehicle_45600"/>
+				<departure id="departure_45900" departureTime="12:45:00" vehicleRefId="shuttle_vehicle_45900"/>
+				<departure id="departure_46200" departureTime="12:50:00" vehicleRefId="shuttle_vehicle_46200"/>
+				<departure id="departure_46500" departureTime="12:55:00" vehicleRefId="shuttle_vehicle_46500"/>
+			</departures>
+		</transitRoute>
+	</transitLine>
+</transitSchedule>

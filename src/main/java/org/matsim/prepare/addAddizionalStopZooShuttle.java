@@ -19,7 +19,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Set;
 
-public class CreateZooShuttle {
+public class addAddizionalStopZooShuttle {
     private static final NetworkFactory networkFactory = NetworkUtils.createNetwork().getFactory();
     private static final TransitScheduleFactory scheduleFactory = ScenarioUtils.createScenario(ConfigUtils.createConfig()).getTransitSchedule().getFactory();
 
@@ -47,15 +47,22 @@ public class CreateZooShuttle {
         // create pt nodes and links --> adapt network
         var startNode = network.getFactory().createNode(Id.createNodeId("pt_start"), new Coord(544006.781992937 + 100, 5847658.641000098 + 100));
         network.addNode(startNode);
+
         var fromNode = network.getNodes().get(Id.createNodeId("29589035"));
         var toNode = network.getNodes().get(Id.createNodeId("3667621813"));
-        var endNode = network.getFactory().createNode(Id.createNodeId("pt_end"), new Coord(541785.9309178652 - 100, 5844877.673792916 - 100));
+        var toNode1 = network.getNodes().get(Id.createNodeId("3593964470"));
+        var endNode = network.getFactory().createNode(Id.createNodeId("pt_end"), new Coord(544006.781992937 - 100, 5847658.641000098 - 100));
         network.addNode(endNode);
+
 
         var startLink = createLink("pt_1", startNode, fromNode);
         var connection = createLink("pt_2", fromNode, toNode);
-        var endLink = createLink("pt_3", toNode, endNode);
+        var connection1 = createLink("pt_3", toNode, toNode1);
+        var endLink = createLink("pt_4", toNode1, endNode);
+
+
         network.addLink(connection);
+        network.addLink(connection1);
         network.addLink(startLink);
         network.addLink(endLink);
 
@@ -63,20 +70,41 @@ public class CreateZooShuttle {
         var fromStopFacility = scheduleFactory.createTransitStopFacility(Id.create("Stop_1", TransitStopFacility.class), startNode.getCoord(), false);
         fromStopFacility.setLinkId(startLink.getId());
 
+
         var toStopFacility = scheduleFactory.createTransitStopFacility(Id.create("Stop_2", TransitStopFacility.class), endNode.getCoord(), false);
         toStopFacility.setLinkId(endLink.getId());
 
+        var toStopFacility1 = scheduleFactory.createTransitStopFacility(Id.create("Stop_3", TransitStopFacility.class), toNode.getCoord(), false);
+        toStopFacility1.setLinkId(connection.getId());
+
+        var toStopFacility2 = scheduleFactory.createTransitStopFacility(Id.create("Stop_4", TransitStopFacility.class), toNode1.getCoord(), false);
+        toStopFacility2.setLinkId(connection1.getId());
+
+
         scenario.getTransitSchedule().addStopFacility(fromStopFacility);
         scenario.getTransitSchedule().addStopFacility(toStopFacility);
+        scenario.getTransitSchedule().addStopFacility(toStopFacility1);
+        scenario.getTransitSchedule().addStopFacility(toStopFacility2);
 
         // create TransitRouteStop
         var fromStop = scheduleFactory.createTransitRouteStop(fromStopFacility, 0, 10); // offset
-        fromStop.setAwaitDepartureTime(true);
-        var toStop = scheduleFactory.createTransitRouteStop(toStopFacility, 3600, 3610);
+        // offset gibt an, dass es sich um die Zeitdifferenz zur geplanten Abfahrtszeit der Route handelt.
+
+        var toStop = scheduleFactory.createTransitRouteStop(toStopFacility, 1000, 1010);
+
+        var toStop1 = scheduleFactory.createTransitRouteStop(toStopFacility1, 2000, 2010);
+
+        var toStop2 = scheduleFactory.createTransitRouteStop(toStopFacility2, 3600, 3610);
+
+
+
+
+
+
 
         // create TransitRoute smaller than transit line
-        var networkRoute = RouteUtils.createLinkNetworkRouteImpl(startLink.getId(), List.of(connection.getId()), endLink.getId());
-        var route = scheduleFactory.createTransitRoute(Id.create("route-1", TransitRoute.class), networkRoute, List.of(fromStop, toStop), "pt");
+        var networkRoute = RouteUtils.createLinkNetworkRouteImpl(startLink.getId(), List.of(connection.getId(), connection1.getId()), endLink.getId());
+        var route = scheduleFactory.createTransitRoute(Id.create("route-1", TransitRoute.class), networkRoute, List.of(fromStop,toStop1, toStop2, toStop), "pt");
 
         // create Departures & corresponding Vehicles
         for (int i = 9 * 3600; i < 13 * 3600; i += 300) {
@@ -95,8 +123,8 @@ public class CreateZooShuttle {
 
         // export input files required for simulation.
         new NetworkWriter(network).write(root.resolve("network-with-pt.xml.gz").toString());
-        new TransitScheduleWriter(scenario.getTransitSchedule()).writeFile(root.resolve("transit-Schedule.xml.gz").toString());
-        new MatsimVehicleWriter(scenario.getTransitVehicles()).writeFile(root.resolve("transit-vehicles.xml.gz").toString());
+        new TransitScheduleWriter(scenario.getTransitSchedule()).writeFile(root.resolve("transit-Schedule_test.xml.gz").toString());
+        new MatsimVehicleWriter(scenario.getTransitVehicles()).writeFile(root.resolve("transit-vehicles_test.xml.gz").toString());
     }
 
     private static Link createLink(String id, Node from, Node to) {
